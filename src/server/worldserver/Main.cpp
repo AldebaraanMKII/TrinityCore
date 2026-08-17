@@ -137,7 +137,7 @@ extern int main(int argc, char** argv)
 
     Trinity::VerifyOsVersion();
 
-    auto configFile = fs::absolute(_TRINITY_CORE_CONFIG);
+    auto configFile = fs::absolute("configs/worldserver.conf");
     std::string configService;
 
     auto vm = GetConsoleArguments(argc, argv, configFile, configService);
@@ -691,7 +691,7 @@ variables_map GetConsoleArguments(int argc, char** argv, fs::path& configFile, s
     all.add_options()
         ("help,h", "print usage message")
         ("version,v", "print version build info")
-        ("config,c", value<fs::path>(&configFile)->default_value(fs::absolute(_TRINITY_CORE_CONFIG)),
+        ("config,c", value<fs::path>(&configFile)->default_value(fs::absolute("configs/worldserver.conf")),
                      "use <arg> as configuration file")
         ("update-databases-only,u", "updates databases only")
         ;

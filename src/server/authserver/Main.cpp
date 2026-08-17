@@ -82,7 +82,7 @@ int main(int argc, char** argv)
     Trinity::Impl::CurrentServerProcessHolder::_type = SERVER_PROCESS_AUTHSERVER;
     signal(SIGABRT, &Trinity::AbortHandler);
 
-    auto configFile = fs::absolute(_TRINITY_REALM_CONFIG);
+    auto configFile = fs::absolute("configs/authserver.conf");
     std::string configService;
     auto vm = GetConsoleArguments(argc, argv, configFile, configService);
     // exit if help or version is enabled
@@ -312,7 +312,7 @@ variables_map GetConsoleArguments(int argc, char** argv, fs::path& configFile, s
     all.add_options()
         ("help,h", "print usage message")
         ("version,v", "print version build info")
-        ("config,c", value<fs::path>(&configFile)->default_value(fs::absolute(_TRINITY_REALM_CONFIG)),
+        ("config,c", value<fs::path>(&configFile)->default_value(fs::absolute("configs/authserver.conf")),
                      "use <arg> as configuration file")
         ;
 #if TRINITY_PLATFORM == TRINITY_PLATFORM_WINDOWS
