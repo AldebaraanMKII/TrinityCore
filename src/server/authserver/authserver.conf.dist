@@ -41,6 +41,14 @@
 LogsDir = ""
 
 #
+#    StrictVersionCheck
+#        Description: Enforce strict client version check
+#        Default:     0 - (Disabled)
+#                     1 - (Enabled)
+
+StrictVersionCheck = 0
+
+#
 #    MaxPingTime
 #        Description: Time (in minutes) between database pings.
 #        Default:     30
